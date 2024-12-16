@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f9fafb;
+  --bgSoft: #e5e7eb;
+  --text: #111827;
+  --textSoft: #6b7280;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151c2c;
+    --bgSoft: #182237;
+    --text: white;
+    --textSoft: #b7bac1;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+table td {
+  padding: 10px;
+}
