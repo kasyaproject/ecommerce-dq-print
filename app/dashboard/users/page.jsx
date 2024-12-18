@@ -1,8 +1,13 @@
+import { fetchUsers } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Link from "next/link";
 
-const UsersPage = () => {
+const UsersPage = async () => {
+  const users = await fetchUsers();
+
+  console.log("Data users : ", users);
+
   return (
     <div className="p-4 mt-5 rounded-md bg-bgSoft">
       <div className="flex items-center justify-between">
