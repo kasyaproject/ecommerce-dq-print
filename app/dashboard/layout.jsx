@@ -4,7 +4,7 @@ import Sidebar from "../ui/dashboard/sidebar/Sidebar";
 const layout = ({ children }) => {
   return (
     <div className="flex">
-      <div className="flex-1 bg-bgSoft p-5 min-h-screen">
+      <div className="flex-1 hidden min-h-screen p-5 sm:flex bg-bgSoft">
         <Sidebar />
       </div>
 

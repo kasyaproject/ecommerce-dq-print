@@ -1,4 +1,4 @@
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return <div className="dark">LoginPage</div>;
 };
 export default LoginPage;

@@ -4,13 +4,13 @@ import { MdLogout } from "react-icons/md";
 
 const sidebar = () => {
   return (
-    <div className="sticky">
+    <div className="sticky w-full">
       {/* Sidebar avatar */}
-      <div className="flex items-center gap-5 mb-8">
+      <div className="flex items-center gap-5 mb-8 ">
         {/* image avatar */}
         <img
           src="/noavatar.png"
-          className="w-14 h-14 rounded-full object-cover"
+          className="object-cover rounded-full w-14 h-14"
           alt="Avatar"
         />
         {/* Detail avatar */}
@@ -24,7 +24,7 @@ const sidebar = () => {
       <ul className="list-none">
         {menuItems.map((menuItem) => (
           <li key={menuItem.title}>
-            <span className="text-textSoft font-bold text-sm mb-3">
+            <span className="mb-3 text-sm font-bold text-textSoft">
               {menuItem.title}
             </span>
             {menuItem.list.map((item) => (
@@ -35,7 +35,7 @@ const sidebar = () => {
       </ul>
 
       {/* Button Logout */}
-      <button className="flex w-full items-center px-5 py-4 gap-3 my-2 hover:bg-blue-400 rounded-lg">
+      <button className="flex items-center w-full gap-3 px-5 py-4 my-2 rounded-lg hover:bg-blue-400">
         <MdLogout />
         Logout
       </button>
