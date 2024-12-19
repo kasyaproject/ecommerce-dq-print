@@ -1,10 +1,11 @@
+import { addProduct } from "@/app/lib/action";
 import { Label, Select, Textarea, TextInput } from "flowbite-react";
 
 const AddProductPage = () => {
   return (
     <div className="p-4 mt-4 rounded-md dark bg-bgSoft">
       <h2 className="mb-4 text-2xl font-bold">Add Product</h2>
-      <form className="flex flex-col w-full gap-4">
+      <form action={addProduct} className="flex flex-col w-full gap-4">
         {/* Field input Name & categories Product */}
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -31,7 +32,7 @@ const AddProductPage = () => {
                 value="Select product categories"
               />
             </div>
-            <Select id="categories" name="categories" required>
+            <Select id="categories" name="category" required>
               <option value="general">Choose a category...</option>
               <option value="Kitchen">Kitchen</option>
               <option value="Phone">Phone</option>
@@ -119,7 +120,7 @@ const AddProductPage = () => {
           </div>
           <Textarea
             id="descriptions"
-            name="descriptions"
+            name="description"
             placeholder="Product Descriptions..."
             required
             className="min-h-40 max-h-80"

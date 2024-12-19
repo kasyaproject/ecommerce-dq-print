@@ -1,10 +1,49 @@
+"use client";
+
+import { useState } from "react";
+import { addUser } from "@/app/lib/action";
 import { Label, Select, Textarea, TextInput } from "flowbite-react";
 
 const AddUsersPage = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validasi password dan confirm password
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    setError("");
+    addUser(e); // Panggil fungsi addUser jika validasi berhasil
+  };
+
   return (
     <div className="p-4 mt-4 rounded-md dark bg-bgSoft">
       <h2 className="mb-4 text-2xl font-bold">Add New User</h2>
-      <form className="flex flex-col w-full gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4">
+        {/* Field input Fullname user */}
+        <div>
+          <div className="block mb-2">
+            <Label
+              className="text-white"
+              htmlFor="fullname"
+              value="Full name user"
+            />
+          </div>
+          <TextInput
+            id="fullname"
+            type="text"
+            name="fullname"
+            placeholder="Enter full name user..."
+            required
+          />
+        </div>
+
         {/* Field input Username & Email user */}
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -57,7 +96,11 @@ const AddUsersPage = () => {
               name="password"
               placeholder="Enter password user..."
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
+
+            {/* Tampilkan error jika password tidak cocok */}
+            {error && <p className="text-red-500">{error}</p>}
           </div>
           <div>
             <div className="block mb-2">
@@ -69,10 +112,11 @@ const AddUsersPage = () => {
             </div>
             <TextInput
               id="ConfirmPasssword"
-              type="passsword"
+              type="password"
               name="ConfirmPasssword"
               placeholder="Enter passsword user..."
               required
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
         </div>
@@ -135,7 +179,7 @@ const AddUsersPage = () => {
           </div>
           <TextInput
             id="phone"
-            type="number"
+            type="text"
             name="phone"
             placeholder="Enter phone number user..."
             required

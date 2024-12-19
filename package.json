@@ -3,25 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon backend/server.js\" \"cross-env NODE_ENV=development next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "type": "module",
   "dependencies": {
     "@next/eslint-plugin-next": "14.0.1",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "flowbite-react": "^0.10.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.1",
     "next": "14.0.1",
     "react": "18",
     "react-dom": "18",
     "react-icons": "^4.11.0",
-    "recharts": "^2.9.0"
+    "react-jwt": "^1.2.2",
+    "recharts": "^2.9.0",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "8",
     "eslint-config-next": "14.0.1",
+    "nodemon": "^3.1.9",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
   }

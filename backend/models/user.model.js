@@ -47,40 +47,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const productSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      min: 3,
-    },
-    category: {
-      type: String,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    stock: {
-      type: Number,
-    },
-    color: {
-      type: String,
-    },
-    size: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    img: {
-      type: String,
-    },
-  },
-  { timestamps: true }
-);
+const User = mongoose.model("User", userSchema);
 
-// ini kondisi jika (model ada || model tidak ada) saat digunakan
-export const User = mongoose.models.User || mongoose.model("User", userSchema);
-export const Products =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+export default User;
